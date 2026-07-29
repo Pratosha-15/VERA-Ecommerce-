@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>VERA — Shop the Spec</title>
+    <meta name="description" content="VERA - Premium modern e-commerce marketplace">
+
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- Header -->
+<header class="header">
+
+    <div class="logo">
+        VERA<span>.</span>
+    </div>
+
+    <nav class="navbar">
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#featured">Featured</a>
+        <a href="#deals">Deals</a>
+        <a href="#products">Products</a>
+    </nav>
+
+
+    <div class="header-icons">
+
+        <button id="themeToggle">
+            <i class="fa-solid fa-moon"></i>
+        </button>
+
+        <button id="searchBtn">
+            <i class="fa-solid fa-search"></i>
+        </button>
+
+        <button id="wishlistBtn">
+            <i class="fa-solid fa-heart"></i>
+            <span id="wishCount">0</span>
+        </button>
+
+        <button id="cartBtn">
+            <i class="fa-solid fa-cart-shopping"></i>
+            <span id="cartCount">0</span>
+        </button>
+
+        <button id="menuBtn">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+    </div>
+
+</header>
+
+
+
+<!-- Search Box -->
+<div class="search-box">
+
+    <input 
+    type="text" 
+    id="searchInput"
+    placeholder="Search products..."
+    >
+
+</div>
+
+
+
+
+<!-- Hero Section -->
+
+<section class="hero" id="home">
+
+
+<div class="hero-slide active">
+
+<div class="hero-content">
+
+<h1>
+Shop the Future of Style
+</h1>
+
+<p>
+Discover premium products designed for modern lifestyles.
+</p>
+
+<button>
+Explore Now
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="hero-slide">
+
+<div class="hero-content">
+
+<h1>
+Premium Quality. Smart Choice.
+</h1>
+
+<p>
+Experience products curated specially for you.
+</p>
+
+<button>
+Shop Now
+</button>
+
+</div>
+
+</div>
+
+
+
+<div class="slider-buttons">
+
+<button id="prevSlide">
+<i class="fa-solid fa-chevron-left"></i>
+</button>
+
+
+<button id="nextSlide">
+<i class="fa-solid fa-chevron-right"></i>
+</button>
+
+</div>
+
+
+</section>
+
+
+
+
+
+<!-- Categories -->
+
+<section class="section" id="categories">
+
+<h2>
+Shop By Category
+</h2>
+
+
+<div class="category-container">
+
+
+<div class="category-card">
+<i class="fa-solid fa-shirt"></i>
+<h3>Fashion</h3>
+</div>
+
+
+<div class="category-card">
+<i class="fa-solid fa-laptop"></i>
+<h3>Electronics</h3>
+</div>
+
+
+<div class="category-card">
+<i class="fa-solid fa-house"></i>
+<h3>Home</h3>
+</div>
+
+
+<div class="category-card">
+<i class="fa-solid fa-heart"></i>
+<h3>Beauty</h3>
+</div>
+
+
+</div>
+
+</section>
+
+
+
+
+
+
+
+<!-- Featured Products -->
+
+<section class="section" id="featured">
+
+<h2>
+Featured Products
+</h2>
+
+
+<div class="product-container" id="featuredProducts">
+
+<!-- Products loaded using Javascript -->
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Flash Sale -->
+
+<section class="sale-section" id="deals">
+
+
+<div>
+
+<h2>
+Flash Sale ⚡
+</h2>
+
+<p>
+Limited time offers. Grab your favourites now!
+</p>
+
+<button>
+Shop Deals
+</button>
+
+</div>
+
+
+<div class="timer">
+
+<span id="hours">12</span> :
+<span id="minutes">30</span> :
+<span id="seconds">45</span>
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Best Sellers -->
+
+<section class="section" id="products">
+
+<h2>
+Best Sellers
+</h2>
+
+
+<div class="product-container" id="bestProducts">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Recommended -->
+
+<section class="section">
+
+<h2>
+Recommended For You
+</h2>
+
+
+<div class="product-container" id="recommendedProducts">
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+
+<!-- Cart Sidebar -->
+
+
+<div class="cart-sidebar" id="cartSidebar">
+
+
+<div class="cart-header">
+
+<h2>Your Cart</h2>
+
+<button id="closeCart">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+
+</div>
+
+
+
+<div id="cartItems">
+
+</div>
+
+
+<div class="cart-total">
+
+<h3>
+Total:
+₹<span id="cartTotal">0</span>
+</h3>
+
+
+<button id="checkoutBtn">
+Checkout
+</button>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<!-- Wishlist Sidebar -->
+
+
+<div class="wishlist-sidebar" id="wishlistSidebar">
+
+<div class="cart-header">
+
+<h2>
+Wishlist
+</h2>
+
+<button id="closeWishlist">
+<i class="fa-solid fa-xmark"></i>
+</button>
+
+</div>
+
+
+<div id="wishlistItems">
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+
+
+<!-- Newsletter -->
+
+<section class="newsletter">
+
+
+<h2>
+Join VERA Community
+</h2>
+
+
+<p>
+Get updates about new arrivals and exclusive offers.
+</p>
+
+
+<div>
+
+<input 
+type="email"
+placeholder="Enter your email"
+>
+
+
+<button>
+Subscribe
+</button>
+
+
+</div>
+
+
+</section>
+
+
+
+
+
+
+
+<!-- Back To Top -->
+
+<button id="backTop">
+
+<i class="fa-solid fa-arrow-up"></i>
+
+</button>
+
+
+
+
+
+
+
+<!-- Toast -->
+
+<div id="toast">
+
+</div>
+
+
+
+
+
+
+
+<!-- Footer -->
+
+
+<footer>
+
+
+<h2>
+VERA.
+</h2>
+
+
+<p>
+Premium shopping experience for everyone.
+</p>
+
+
+<div class="social">
+
+<i class="fa-brands fa-instagram"></i>
+<i class="fa-brands fa-facebook"></i>
+<i class="fa-brands fa-twitter"></i>
+
+</div>
+
+
+<p>
+© 2026 VERA. All Rights Reserved.
+</p>
+
+
+</footer>
+
+
+
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
