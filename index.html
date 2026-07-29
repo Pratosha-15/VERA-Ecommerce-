@@ -1,145 +1,296 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>VERA — Shop the Spec</title>
-    <meta name="description" content="VERA - Premium modern e-commerce marketplace">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- Icons -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+<title>NovaCart | Premium E-Commerce</title>
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="style.css">
+<meta name="description" content="Modern user-centric e-commerce homepage UI">
+
+<!-- Font Awesome Icons -->
+<link rel="stylesheet" 
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+<!-- Google Font -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+
+<link rel="stylesheet" href="style.css">
+
 </head>
+
 
 <body>
 
+
+<!-- Loading Animation -->
+
+<div class="loader">
+
+<div></div>
+
+</div>
+
+
+
+
+
 <!-- Header -->
+
 <header class="header">
 
-    <div class="logo">
-        VERA<span>.</span>
-    </div>
 
-    <nav class="navbar">
-        <a href="#home">Home</a>
-        <a href="#categories">Categories</a>
-        <a href="#featured">Featured</a>
-        <a href="#deals">Deals</a>
-        <a href="#products">Products</a>
-    </nav>
+<div class="logo">
+
+Nova<span>Cart</span>
+
+</div>
 
 
-    <div class="header-icons">
 
-        <button id="themeToggle">
-            <i class="fa-solid fa-moon"></i>
-        </button>
+<div class="search-container">
 
-        <button id="searchBtn">
-            <i class="fa-solid fa-search"></i>
-        </button>
+<input 
+type="search"
+id="searchInput"
+placeholder="Search products..."
+aria-label="Search products">
 
-        <button id="wishlistBtn">
-            <i class="fa-solid fa-heart"></i>
-            <span id="wishCount">0</span>
-        </button>
 
-        <button id="cartBtn">
-            <i class="fa-solid fa-cart-shopping"></i>
-            <span id="cartCount">0</span>
-        </button>
+<button>
 
-        <button id="menuBtn">
-            <i class="fa-solid fa-bars"></i>
-        </button>
+<i class="fa-solid fa-search"></i>
 
-    </div>
+</button>
+
+
+</div>
+
+
+
+
+
+<nav class="navbar" id="navbar">
+
+
+<a href="#home" class="active">Home</a>
+
+<a href="#categories">Categories</a>
+
+<a href="#products">Products</a>
+
+<a href="#deals">Deals</a>
+
+<a href="#reviews">Reviews</a>
+
+
+</nav>
+
+
+
+
+
+
+<div class="header-actions">
+
+
+<button class="theme-btn" id="themeToggle" aria-label="Toggle theme">
+
+<i class="fa-solid fa-moon"></i>
+
+</button>
+
+
+
+<button aria-label="Wishlist">
+
+<i class="fa-solid fa-heart"></i>
+
+<span id="wishlistCount">0</span>
+
+</button>
+
+
+
+<button id="cartButton" aria-label="Shopping cart">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+<span id="cartCount">0</span>
+
+</button>
+
+
+
+
+<button class="login-btn">
+
+Login
+
+</button>
+
+
+
+<button id="menuBtn" class="menu-btn">
+
+<i class="fa-solid fa-bars"></i>
+
+</button>
+
+
+
+</div>
+
+
 
 </header>
 
 
 
-<!-- Search Box -->
-<div class="search-box">
-
-    <input 
-    type="text" 
-    id="searchInput"
-    placeholder="Search products..."
-    >
-
-</div>
 
 
 
 
-<!-- Hero Section -->
+
+<!-- Hero Slider -->
 
 <section class="hero" id="home">
 
 
-<div class="hero-slide active">
+<div class="slides">
+
+
+
+<div class="slide active">
+
+<img src="https://images.unsplash.com/photo-1441986300917-64674bd600d8"
+alt="Shopping store">
+
 
 <div class="hero-content">
 
 <h1>
-Shop the Future of Style
+Discover Premium Products
 </h1>
 
-<p>
-Discover premium products designed for modern lifestyles.
-</p>
-
-<button>
-Explore Now
-</button>
-
-</div>
-
-</div>
-
-
-
-<div class="hero-slide">
-
-<div class="hero-content">
-
-<h1>
-Premium Quality. Smart Choice.
-</h1>
 
 <p>
-Experience products curated specially for you.
+Everything you need, delivered with quality and style.
 </p>
+
 
 <button>
 Shop Now
 </button>
 
-</div>
 
 </div>
 
 
+</div>
 
-<div class="slider-buttons">
 
-<button id="prevSlide">
+
+
+
+<div class="slide">
+
+
+<img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d"
+alt="Online shopping">
+
+
+<div class="hero-content">
+
+<h1>
+Exclusive Deals Everyday
+</h1>
+
+
+<p>
+Save more with limited time offers.
+</p>
+
+
+<button>
+Explore Deals
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="slide">
+
+
+<img src="https://images.unsplash.com/photo-1607082349566-187342175e2f"
+alt="Fashion shopping">
+
+
+<div class="hero-content">
+
+
+<h1>
+New Trends. Smart Choices.
+</h1>
+
+
+<p>
+Experience next-generation shopping.
+</p>
+
+
+<button>
+Start Shopping
+</button>
+
+
+</div>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+<button class="slider-btn prev" aria-label="Previous slide">
+
 <i class="fa-solid fa-chevron-left"></i>
+
 </button>
 
 
-<button id="nextSlide">
+
+<button class="slider-btn next" aria-label="Next slide">
+
 <i class="fa-solid fa-chevron-right"></i>
-</button>
 
-</div>
+</button>
 
 
 </section>
+
+
+
+
+
 
 
 
@@ -147,43 +298,105 @@ Shop Now
 
 <!-- Categories -->
 
+
 <section class="section" id="categories">
+
 
 <h2>
 Shop By Category
 </h2>
 
 
-<div class="category-container">
+<div class="category-grid">
 
-
-<div class="category-card">
-<i class="fa-solid fa-shirt"></i>
-<h3>Fashion</h3>
-</div>
 
 
 <div class="category-card">
+
 <i class="fa-solid fa-laptop"></i>
+
 <h3>Electronics</h3>
+
 </div>
 
 
+
 <div class="category-card">
-<i class="fa-solid fa-house"></i>
-<h3>Home</h3>
+
+<i class="fa-solid fa-shirt"></i>
+
+<h3>Fashion</h3>
+
 </div>
 
 
+
 <div class="category-card">
-<i class="fa-solid fa-heart"></i>
+
+<i class="fa-solid fa-spa"></i>
+
 <h3>Beauty</h3>
+
 </div>
 
 
+
+<div class="category-card">
+
+<i class="fa-solid fa-basket-shopping"></i>
+
+<h3>Grocery</h3>
+
 </div>
+
+
+
+<div class="category-card">
+
+<i class="fa-solid fa-couch"></i>
+
+<h3>Furniture</h3>
+
+</div>
+
+
+
+<div class="category-card">
+
+<i class="fa-solid fa-dumbbell"></i>
+
+<h3>Sports</h3>
+
+</div>
+
+
+
+<div class="category-card">
+
+<i class="fa-solid fa-book"></i>
+
+<h3>Books</h3>
+
+</div>
+
+
+
+<div class="category-card">
+
+<i class="fa-solid fa-gamepad"></i>
+
+<h3>Toys</h3>
+
+</div>
+
+
+
+</div>
+
 
 </section>
+
+
 
 
 
@@ -193,21 +406,28 @@ Shop By Category
 
 <!-- Featured Products -->
 
-<section class="section" id="featured">
+
+<section class="section" id="products">
+
 
 <h2>
 Featured Products
 </h2>
 
 
-<div class="product-container" id="featuredProducts">
+
+<div class="product-grid" id="productContainer">
+
 
 <!-- Products loaded using Javascript -->
+
 
 </div>
 
 
 </section>
+
+
 
 
 
@@ -217,31 +437,69 @@ Featured Products
 
 <!-- Flash Sale -->
 
-<section class="sale-section" id="deals">
+
+<section class="flash-sale" id="deals">
+
+
+<div class="sale-content">
+
+
+<span class="sale-badge">
+FLASH SALE
+</span>
+
+
+<h2>
+Mega Discounts Up To 70% OFF
+</h2>
+
+
+<p>
+Hurry! Limited time offer.
+</p>
+
+
+
+<div class="countdown">
 
 
 <div>
 
-<h2>
-Flash Sale ⚡
-</h2>
+<span id="hours">00</span>
 
-<p>
-Limited time offers. Grab your favourites now!
-</p>
+Hours
+
+</div>
+
+
+
+<div>
+
+<span id="minutes">00</span>
+
+Minutes
+
+</div>
+
+
+
+<div>
+
+<span id="seconds">00</span>
+
+Seconds
+
+</div>
+
+
+
+</div>
+
 
 <button>
-Shop Deals
+Grab Deals
 </button>
 
-</div>
-
-
-<div class="timer">
-
-<span id="hours">12</span> :
-<span id="minutes">30</span> :
-<span id="seconds">45</span>
 
 </div>
 
@@ -254,21 +512,24 @@ Shop Deals
 
 
 
-<!-- Best Sellers -->
 
-<section class="section" id="products">
+
+<!-- Today's Deals -->
+
+
+<section class="section">
+
 
 <h2>
-Best Sellers
+Today's Deals
 </h2>
 
 
-<div class="product-container" id="bestProducts">
-
-</div>
+<div class="product-grid" id="dealsContainer"></div>
 
 
 </section>
+
 
 
 
@@ -278,16 +539,16 @@ Best Sellers
 
 <!-- Recommended -->
 
+
 <section class="section">
+
 
 <h2>
 Recommended For You
 </h2>
 
 
-<div class="product-container" id="recommendedProducts">
-
-</div>
+<div class="product-grid" id="recommendedContainer"></div>
 
 
 </section>
@@ -299,79 +560,111 @@ Recommended For You
 
 
 
-<!-- Cart Sidebar -->
+
+<!-- Best Sellers -->
 
 
-<div class="cart-sidebar" id="cartSidebar">
+<section class="section">
 
-
-<div class="cart-header">
-
-<h2>Your Cart</h2>
-
-<button id="closeCart">
-<i class="fa-solid fa-xmark"></i>
-</button>
-
-
-</div>
-
-
-
-<div id="cartItems">
-
-</div>
-
-
-<div class="cart-total">
-
-<h3>
-Total:
-₹<span id="cartTotal">0</span>
-</h3>
-
-
-<button id="checkoutBtn">
-Checkout
-</button>
-
-
-</div>
-
-
-
-</div>
-
-
-
-
-
-
-
-<!-- Wishlist Sidebar -->
-
-
-<div class="wishlist-sidebar" id="wishlistSidebar">
-
-<div class="cart-header">
 
 <h2>
-Wishlist
+Best Sellers
 </h2>
 
-<button id="closeWishlist">
-<i class="fa-solid fa-xmark"></i>
-</button>
+
+<div class="product-grid" id="bestContainer"></div>
+
+
+</section>
+
+
+
+
+
+
+
+
+
+<!-- Reviews -->
+
+
+<section class="section" id="reviews">
+
+
+<h2>
+Customer Reviews
+</h2>
+
+
+<div class="review-grid">
+
+
+<div class="review-card">
+
+<img src="https://randomuser.me/api/portraits/women/44.jpg">
+
+<h3>Emma</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+Amazing shopping experience. Products are premium quality.
+</p>
+
 
 </div>
 
 
-<div id="wishlistItems">
+
+
+
+<div class="review-card">
+
+<img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+<h3>James</h3>
+
+<div class="stars">
+★★★★★
+</div>
+
+<p>
+Fast delivery and excellent customer support.
+</p>
+
 
 </div>
 
 
+
+
+
+<div class="review-card">
+
+<img src="https://randomuser.me/api/portraits/women/68.jpg">
+
+<h3>Sophia</h3>
+
+<div class="stars">
+★★★★☆
 </div>
+
+<p>
+Beautiful interface and great offers.
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+</section>
+
 
 
 
@@ -382,16 +675,17 @@ Wishlist
 
 <!-- Newsletter -->
 
+
 <section class="newsletter">
 
 
 <h2>
-Join VERA Community
+Subscribe To NovaCart
 </h2>
 
 
 <p>
-Get updates about new arrivals and exclusive offers.
+Get latest offers and product updates.
 </p>
 
 
@@ -399,8 +693,7 @@ Get updates about new arrivals and exclusive offers.
 
 <input 
 type="email"
-placeholder="Enter your email"
->
+placeholder="Enter your email">
 
 
 <button>
@@ -419,7 +712,50 @@ Subscribe
 
 
 
+
+
+<!-- Cart Sidebar -->
+
+
+<aside class="cart-sidebar" id="cartSidebar">
+
+
+<div class="cart-header">
+
+<h2>
+Your Cart
+</h2>
+
+
+<button id="closeCart">
+
+<i class="fa-solid fa-xmark"></i>
+
+</button>
+
+
+</div>
+
+
+<div id="cartItems"></div>
+
+
+<h3>
+Total: ₹<span id="cartTotal">0</span>
+</h3>
+
+
+</aside>
+
+
+
+
+
+
+
+
 <!-- Back To Top -->
+
 
 <button id="backTop">
 
@@ -433,16 +769,6 @@ Subscribe
 
 
 
-<!-- Toast -->
-
-<div id="toast">
-
-</div>
-
-
-
-
-
 
 
 <!-- Footer -->
@@ -451,27 +777,61 @@ Subscribe
 <footer>
 
 
+<div>
+
+
 <h2>
-VERA.
+NovaCart
 </h2>
 
 
 <p>
-Premium shopping experience for everyone.
+Premium online shopping experience.
 </p>
+
+
+</div>
+
+
+
+
+<div>
+
+<h3>
+Quick Links
+</h3>
+
+<p>About</p>
+
+<p>Contact</p>
+
+<p>FAQ</p>
+
+<p>Privacy Policy</p>
+
+<p>Terms & Conditions</p>
+
+
+</div>
+
+
 
 
 <div class="social">
 
+
 <i class="fa-brands fa-instagram"></i>
+
 <i class="fa-brands fa-facebook"></i>
+
 <i class="fa-brands fa-twitter"></i>
+
 
 </div>
 
 
 <p>
-© 2026 VERA. All Rights Reserved.
+© 2026 NovaCart. All Rights Reserved.
 </p>
 
 
@@ -481,7 +841,11 @@ Premium shopping experience for everyone.
 
 
 
+
+
 <script src="script.js"></script>
 
+
 </body>
+
 </html>
