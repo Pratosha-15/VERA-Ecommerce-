@@ -1,439 +1,611 @@
-/* =========================
-   NovaCart Premium E-Commerce
-   Main Stylesheet
-========================= */
+/* ==========================
+   NOVACART - SCRIPT.JS
+   Part 1
+========================== */
+
+// Loading Screen
+window.addEventListener("load", () => {
+    const loader = document.querySelector(".loader");
+    setTimeout(() => {
+        loader.style.opacity = "0";
+        loader.style.visibility = "hidden";
+    }, 800);
+});
+
+// Product Data
+const products = [
+{
+id:1,
+name:"Wireless Headphones",
+price:2499,
+discount:"20% OFF",
+rating:4.8,
+category:"Electronics",
+image:"https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=600"
+},
+{
+id:2,
+name:"Premium Sneakers",
+price:3999,
+discount:"30% OFF",
+rating:4.7,
+category:"Fashion",
+image:"https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=600"
+},
+{
+id:3,
+name:"Smart Watch",
+price:5999,
+discount:"15% OFF",
+rating:4.9,
+category:"Electronics",
+image:"https://images.unsplash.com/photo-1523275335684-37898b6baf30?w=600"
+},
+{
+id:4,
+name:"Luxury Sofa",
+price:14999,
+discount:"25% OFF",
+rating:4.6,
+category:"Furniture",
+image:"https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?w=600"
+},
+{
+id:5,
+name:"Beauty Kit",
+price:1299,
+discount:"35% OFF",
+rating:4.5,
+category:"Beauty",
+image:"https://images.unsplash.com/photo-1596462502278-27bfdc403348?w=600"
+},
+{
+id:6,
+name:"Football",
+price:899,
+discount:"10% OFF",
+rating:4.4,
+category:"Sports",
+image:"https://images.unsplash.com/photo-1517466787929-bc90951d0974?w=600"
+},
+{
+id:7,
+name:"Programming Book",
+price:699,
+discount:"18% OFF",
+rating:4.8,
+category:"Books",
+image:"https://images.unsplash.com/photo-1512820790803-83ca734da794?w=600"
+},
+{
+id:8,
+name:"Toy Car",
+price:499,
+discount:"40% OFF",
+rating:4.5,
+category:"Toys",
+image:"https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600"
+}
+];
+
+// Storage
+let cart = JSON.parse(localStorage.getItem("cart")) || [];
+let wishlist = JSON.parse(localStorage.getItem("wishlist")) || [];
+
+// Render Products
+function renderProducts(containerId){
+
+const container = document.getElementById(containerId);
+
+if(!container) return;
+
+container.innerHTML="";
+
+products.forEach(product=>{
+
+container.innerHTML += `
+<div class="product-card reveal">
+
+<img src="${product.image}" alt="${product.name}">
+
+<h3>${product.name}</h3>
+
+<p class="price">₹${product.price}</p>
+
+<p>${product.discount}</p>
+
+<p>⭐ ${product.rating}</p>
+
+<button onclick="addToCart(${product.id})">
+Add To Cart
+</button>
+
+</div>
+`;
+
+});
+
+}
+
+renderProducts("productContainer");
+renderProducts("dealsContainer");
+renderProducts("recommendedContainer");
+renderProducts("bestContainer");
+
+// Cart
+function addToCart(id){
+
+const product = products.find(p=>p.id===id);
+
+cart.push(product);
+
+localStorage.setItem("cart",JSON.stringify(cart));
+
+updateCart();
+
+}
+
+function updateCart(){
+
+const cartCount=document.getElementById("cartCount");
+
+const cartItems=document.getElementById("cartItems");
+
+const total=document.getElementById("cartTotal");
+
+cartCount.textContent=cart.length;
+
+cartItems.innerHTML="";
+
+let sum=0;
+
+cart.forEach(item=>{
+
+sum+=item.price;
+
+cartItems.innerHTML+=`
+<div class="cart-item">
+<p>${item.name}</p>
+<p>₹${item.price}</p>
+</div>
+`;
+
+});
+
+total.textContent=sum;
+
+}
+
+updateCart();
+/* ==========================
+   NOVACART - SCRIPT.JS
+   Part 2
+========================== */
+
+// Wishlist
+function toggleWishlist(id){
+
+const product = products.find(p => p.id === id);
+
+const exists = wishlist.find(item => item.id === id);
+
+if(exists){
+
+wishlist = wishlist.filter(item => item.id !== id);
+
+}else{
+
+wishlist.push(product);
+
+}
+
+localStorage.setItem("wishlist", JSON.stringify(wishlist));
+
+document.getElementById("wishlistCount").textContent = wishlist.length;
+
+}
+
+document.getElementById("wishlistCount").textContent = wishlist.length;
 
 
-:root{
+// Hero Slider
 
-    --primary:#2563eb;
-    --secondary:#7c3aed;
-    --accent:#f59e0b;
+const slides = document.querySelectorAll(".slide");
 
-    --bg:#ffffff;
-    --card:#f8fafc;
-    --text:#111827;
-    --muted:#64748b;
+let currentSlide = 0;
 
-    --shadow:0 10px 30px rgba(0,0,0,.08);
+function showSlide(index){
 
-    --radius:20px;
+slides.forEach(slide => slide.classList.remove("active"));
+
+slides[index].classList.add("active");
+
+}
+
+function nextSlide(){
+
+currentSlide++;
+
+if(currentSlide >= slides.length){
+
+currentSlide = 0;
+
+}
+
+showSlide(currentSlide);
+
+}
+
+function prevSlide(){
+
+currentSlide--;
+
+if(currentSlide < 0){
+
+currentSlide = slides.length - 1;
+
+}
+
+showSlide(currentSlide);
+
+}
+
+const nextBtn = document.querySelector(".next");
+const prevBtn = document.querySelector(".prev");
+
+if(nextBtn){
+
+nextBtn.addEventListener("click", nextSlide);
+
+}
+
+if(prevBtn){
+
+prevBtn.addEventListener("click", prevSlide);
+
+}
+
+setInterval(nextSlide,3000);
+
+
+// Countdown Timer
+
+let totalSeconds = 5 * 60 * 60;
+
+function updateTimer(){
+
+let hours = Math.floor(totalSeconds / 3600);
+
+let minutes = Math.floor((totalSeconds % 3600)/60);
+
+let seconds = totalSeconds % 60;
+
+document.getElementById("hours").textContent =
+String(hours).padStart(2,"0");
+
+document.getElementById("minutes").textContent =
+String(minutes).padStart(2,"0");
+
+document.getElementById("seconds").textContent =
+String(seconds).padStart(2,"0");
+
+if(totalSeconds > 0){
+
+totalSeconds--;
+
+}
+
+}
+
+setInterval(updateTimer,1000);
+
+updateTimer();
+
+
+// Search Filter
+
+const searchInput = document.getElementById("searchInput");
+
+if(searchInput){
+
+searchInput.addEventListener("keyup",function(){
+
+const value = this.value.toLowerCase();
+
+document.querySelectorAll(".product-card").forEach(card=>{
+
+card.style.display =
+card.innerText.toLowerCase().includes(value)
+? "block"
+: "none";
+
+});
+
+});
 
 }
 
 
+// Dark Mode
 
-.dark{
+const themeToggle = document.getElementById("themeToggle");
 
-    --bg:#0f172a;
-    --card:#1e293b;
-    --text:#f8fafc;
-    --muted:#cbd5e1;
+if(localStorage.getItem("theme") === "dark"){
+
+document.body.classList.add("dark");
+
+}
+
+if(themeToggle){
+
+themeToggle.addEventListener("click",()=>{
+
+document.body.classList.toggle("dark");
+
+localStorage.setItem(
+
+"theme",
+
+document.body.classList.contains("dark")
+? "dark"
+: "light"
+
+);
+
+});
 
 }
 
 
+// Mobile Menu
 
+const menuBtn = document.getElementById("menuBtn");
 
-*{
+const navbar = document.getElementById("navbar");
 
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    scroll-behavior:smooth;
+if(menuBtn){
 
-}
+menuBtn.addEventListener("click",()=>{
 
+navbar.classList.toggle("show");
 
-
-body{
-
-    font-family:'Poppins',sans-serif;
-
-    background:var(--bg);
-
-    color:var(--text);
-
-    transition:.3s;
+});
 
 }
 
 
+// Cart Sidebar
 
+const cartButton = document.getElementById("cartButton");
 
+const cartSidebar = document.getElementById("cartSidebar");
 
-/* Loader */
+const closeCart = document.getElementById("closeCart");
 
+if(cartButton){
 
-.loader{
+cartButton.onclick = ()=>{
 
-    position:fixed;
+cartSidebar.classList.add("active");
 
-    inset:0;
-
-    background:var(--bg);
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    z-index:9999;
+};
 
 }
 
+if(closeCart){
 
+closeCart.onclick = ()=>{
 
-.loader div{
+cartSidebar.classList.remove("active");
 
-    width:50px;
-
-    height:50px;
-
-    border:5px solid #ddd;
-
-    border-top-color:var(--primary);
-
-    border-radius:50%;
-
-    animation:spin 1s linear infinite;
+};
 
 }
+/* ==========================
+   NOVACART - SCRIPT.JS
+   Part 3
+========================== */
 
+// Back To Top Button
 
-@keyframes spin{
+const backTop = document.getElementById("backTop");
 
-    to{
+window.addEventListener("scroll", () => {
 
-        transform:rotate(360deg);
+    if(window.scrollY > 300){
+
+        backTop.style.display = "block";
+
+    }else{
+
+        backTop.style.display = "none";
 
     }
 
-}
+});
+
+backTop.addEventListener("click", () => {
+
+    window.scrollTo({
+
+        top:0,
+
+        behavior:"smooth"
+
+    });
+
+});
 
 
 
+// Scroll Reveal Animation
 
+const revealElements = document.querySelectorAll(".reveal");
 
+function revealOnScroll(){
 
-/* HEADER */
+    const windowHeight = window.innerHeight;
 
+    revealElements.forEach(element => {
 
-.header{
+        const top = element.getBoundingClientRect().top;
 
-    position:sticky;
+        if(top < windowHeight - 100){
 
-    top:0;
+            element.classList.add("active");
 
-    z-index:1000;
+        }
 
-    display:flex;
-
-    align-items:center;
-
-    justify-content:space-between;
-
-    padding:18px 6%;
-
-    background:rgba(255,255,255,.8);
-
-    backdrop-filter:blur(15px);
-
-    box-shadow:var(--shadow);
-
-}
-
-
-
-.dark .header{
-
-    background:rgba(15,23,42,.8);
+    });
 
 }
 
+window.addEventListener("scroll", revealOnScroll);
 
+revealOnScroll();
 
-.logo{
 
-    font-size:32px;
 
-    font-weight:800;
+// Active Navigation Highlight
 
-}
+const sections = document.querySelectorAll("section");
 
+const navLinks = document.querySelectorAll(".navbar a");
 
+window.addEventListener("scroll", () => {
 
-.logo span{
+    let current = "";
 
-    color:var(--primary);
+    sections.forEach(section => {
 
-}
+        const sectionTop = section.offsetTop - 120;
 
+        if(window.scrollY >= sectionTop){
 
+            current = section.getAttribute("id");
 
+        }
 
+    });
 
-.search-container{
+    navLinks.forEach(link => {
 
-    display:flex;
+        link.classList.remove("active");
 
-    width:35%;
+        if(link.getAttribute("href") === "#" + current){
 
-    background:var(--card);
+            link.classList.add("active");
 
-    border-radius:30px;
+        }
 
-    overflow:hidden;
+    });
 
-}
+});
 
 
 
-.search-container input{
+// Smooth Scrolling
 
-    flex:1;
+navLinks.forEach(link => {
 
-    padding:14px 20px;
+    link.addEventListener("click", e => {
 
-    border:none;
+        e.preventDefault();
 
-    outline:none;
+        const target = document.querySelector(link.getAttribute("href"));
 
-    background:transparent;
+        if(target){
 
-    color:var(--text);
+            target.scrollIntoView({
 
-}
+                behavior:"smooth"
 
+            });
 
+        }
 
-.search-container button{
+        if(navbar.classList.contains("show")){
 
-    width:50px;
+            navbar.classList.remove("show");
 
-    border:none;
+        }
 
-    background:var(--primary);
+    });
 
-    color:white;
+});
 
-}
 
 
+// Keyboard Accessibility
 
+document.addEventListener("keydown", (e) => {
 
+    if(e.key === "Escape"){
 
-.navbar{
+        cartSidebar.classList.remove("active");
 
-    display:flex;
+        if(navbar){
 
-    gap:25px;
+            navbar.classList.remove("show");
 
-}
+        }
 
+    }
 
+});
 
-.navbar a{
 
-    text-decoration:none;
 
-    color:var(--text);
+// Newsletter
 
-    font-weight:500;
+const subscribeBtn = document.querySelector(".newsletter button");
 
-    position:relative;
+if(subscribeBtn){
 
-}
+    subscribeBtn.addEventListener("click", () => {
 
+        const email = document.querySelector(".newsletter input").value;
 
+        if(email.trim() !== ""){
 
-.navbar a.active,
-.navbar a:hover{
+            alert("🎉 Thank you for subscribing!");
 
-    color:var(--primary);
+            document.querySelector(".newsletter input").value = "";
 
-}
+        }else{
 
+            alert("Please enter your email address.");
 
+        }
 
-.navbar a.active::after{
-
-    content:"";
-
-    position:absolute;
-
-    bottom:-8px;
-
-    left:0;
-
-    width:100%;
-
-    height:3px;
-
-    background:var(--primary);
+    });
 
 }
 
 
 
+// Shop Now Buttons
 
+document.querySelectorAll(".hero-content button").forEach(button => {
 
-.header-actions{
+    button.addEventListener("click", () => {
 
-    display:flex;
+        document.getElementById("products").scrollIntoView({
 
-    gap:15px;
+            behavior:"smooth"
 
-    align-items:center;
+        });
 
-}
+    });
 
+});
 
 
-.header-actions button{
 
-    border:none;
+// Initialise
 
-    background:none;
+updateCart();
 
-    color:var(--text);
+showSlide(currentSlide);
 
-    cursor:pointer;
-
-    font-size:18px;
-
-    position:relative;
-
-}
-
-
-
-.header-actions span{
-
-    position:absolute;
-
-    top:-12px;
-
-    right:-12px;
-
-    background:var(--primary);
-
-    color:white;
-
-    border-radius:50%;
-
-    font-size:11px;
-
-    padding:3px 6px;
-
-}
-
-
-
-.login-btn{
-
-    background:var(--primary)!important;
-
-    color:white!important;
-
-    padding:10px 25px;
-
-    border-radius:30px;
-
-}
-
-
-
-.menu-btn{
-
-    display:none;
-
-}
-
-
-
-
-
-
-
-/* HERO */
-
-
-.hero{
-
-    height:85vh;
-
-    position:relative;
-
-    overflow:hidden;
-
-}
-
-
-
-.slide{
-
-    display:none;
-
-    height:100%;
-
-    position:relative;
-
-}
-
-
-
-.slide.active{
-
-    display:block;
-
-    animation:fade 1s;
-
-}
-
-
-
-.slide img{
-
-    width:100%;
-
-    height:100%;
-
-    object-fit:cover;
-
-}
-
-
-
-.hero-content{
-
-    position:absolute;
-
-    top:50%;
-
-    left:8%;
-
-    transform:translateY(-50%);
-
-    color:white;
-
-    max-width:600px;
-
-}
-
-
-
-.hero-content h1{
-
-    font-size:55px;
-
-    margin-bottom:20px;
-
-}
-
-
-
-.hero-content p{
-
-    font-size:20px;
+console.log("✅ NovaCart loaded successfully!");
