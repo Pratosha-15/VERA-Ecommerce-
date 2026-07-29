@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NovaCart - Premium E-Commerce</title>
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body>
+<header class="header">
+  <div class="logo">Nova<span>Cart</span></div>
+  <nav class="navbar">
+    <a href="#home">Home</a>
+    <a href="#categories">Categories</a>
+    <a href="#products">Products</a>
+    <a href="#deals">Deals</a>
+    <a href="#reviews">Reviews</a>
+  </nav>
+  <div class="actions">
+    <input id="searchInput" type="search" placeholder="Search products...">
+    <button id="themeToggle"><i class="fa-solid fa-moon"></i></button>
+    <button id="wishlistBtn"><i class="fa-solid fa-heart"></i><span id="wishlistCount">0</span></button>
+    <button id="cartButton"><i class="fa-solid fa-cart-shopping"></i><span id="cartCount">0</span></button>
+  </div>
+</header>
+
+<section id="home" class="hero">
+  <div class="slide active">
+    <h1>Discover Premium Shopping</h1>
+    <p>Modern UI for your hackathon demo.</p>
+    <button>Shop Now</button>
+  </div>
+</section>
+
+<section id="categories">
+  <h2>Shop by Categories</h2>
+  <div class="category-grid"></div>
+</section>
+
+<section id="products">
+  <h2>Featured Products</h2>
+  <div id="productContainer" class="product-grid"></div>
+</section>
+
+<section id="deals">
+  <h2>Flash Sale</h2>
+  <div class="countdown">
+    <span id="hours">00</span>:
+    <span id="minutes">00</span>:
+    <span id="seconds">00</span>
+  </div>
+  <div id="dealsContainer" class="product-grid"></div>
+</section>
+
+<section>
+  <h2>Recommended</h2>
+  <div id="recommendedContainer" class="product-grid"></div>
+</section>
+
+<section>
+  <h2>Best Sellers</h2>
+  <div id="bestContainer" class="product-grid"></div>
+</section>
+
+<section id="reviews">
+  <h2>Customer Reviews</h2>
+</section>
+
+<footer>
+  <p>&copy; 2026 NovaCart</p>
+</footer>
+
+<aside id="cartSidebar" class="cart-sidebar">
+  <button id="closeCart">Close</button>
+  <div id="cartItems"></div>
+  <p>Total: ₹<span id="cartTotal">0</span></p>
+</aside>
+
+<button id="backTop">↑</button>
+
+<script src="script.js"></script>
+</body>
+</html>
